@@ -1,3 +1,23 @@
+<?php
+  $name = 'Marly Mejia';
+
+  /* Muestra información sobre una variable */
+  var_dump($name); 
+
+  $lastName = 'Mejia';
+  
+  /* Comillas simples: no reconoce variables dentro de las comillas. */
+  echo 'Marly $lastName <br/>'; 
+  
+  /* hay q concatenarlas con el operador de concatenación (.) */
+  echo 'Marly '.$lastName.'<br/>';
+
+  /* Comillas dobles: si interpreta variables dento
+    No hace falta el operador de concatenación */
+  echo "Marly $lastName <br/>";
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -21,7 +41,7 @@
         <img id="profile-picture" src="https://ui-avatars.com/api/?name=John+Doe&size=255" alt="">
       </div>
       <div class="col">
-        <h1><?php echo 'Marly Mejia'; ?></h1>
+        <h1><?php echo $name ?></h1>
         <h2>PHP Developer</h2>
         <ul>
           <li>Mail: hector@mail.com</li>
