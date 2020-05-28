@@ -1,6 +1,6 @@
 <?php
 
-/* CLASE 06 */
+/* ********** CLASE 06 ********** */
 
   $name = 'Marly Mejia';
 
@@ -49,7 +49,7 @@
   echo '<br/><br/>';
   echo '<hr>';
 
-  /* CLASE 10: EJERCICIOS */
+  /* ********** CLASE 10: EJERCICIOS ********** */
   
   echo '<br/>';
   echo 'Ejercicio 1.';
@@ -118,5 +118,36 @@
   for ($i=count($valores)-1; $i > count($valores)-4 ; $i--) { 
     echo $valores[$i].', ';
   }
+
+
+  echo '<br/><br/>';
+  echo '<hr>';
+
+
+
+  /* ********** CLASE 14: EJERCICIOS ********** */
+
+  echo '<br/>';
+  echo 'Ejercicio 1.';
+  echo '<br/><br/>';
+
+  $a = 2;
+  $b = 3;
+
+  echo "$b$a" + $b;
+  echo '<br/>';
+  echo $b*($a+$b);
+
+  echo '<br/>';
+  echo 'Ejercicio 2.';
+  echo '<br/><br/>';
+ 
+  // if ($valor > 5 && $valor < 10) {
+  //   # code...
+  // }
+
+  // if ($valor >= 5 && $valor < 10) {
+  //   # code...
+  // }
 
 ?>
