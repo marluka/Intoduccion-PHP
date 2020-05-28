@@ -1,21 +1,22 @@
 <?php
   $name = 'Marly Mejia';
 
-  /* Muestra información sobre una variable */
-  var_dump($name); 
-
-  $lastName = 'Mejia';
+  $job = [
+    [
+      'title' => 'PHP Developer',
+      'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Nisi sapiente sed pariatur sint exercitationem eos expedita 
+                        eveniet veniam ullam, quia neque facilis dicta voluptatibus. 
+                        Eveniet doloremque ipsum itaque obcaecati nihil.'
+    ],
+    [
+      'title' => 'Python Dev'
+    ],
+    [
+      'title' => 'Devops'
+      ]
+  ];
   
-  /* Comillas simples: no reconoce variables dentro de las comillas. */
-  echo 'Marly $lastName <br/>'; 
-  
-  /* hay q concatenarlas con el operador de concatenación (.) */
-  echo 'Marly '.$lastName.'<br/>';
-
-  /* Comillas dobles: si interpreta variables dento
-    No hace falta el operador de concatenación */
-  echo "Marly $lastName <br/>";
-
 ?>
 
 <!DOCTYPE html>
@@ -74,7 +75,17 @@
           <h3 class="border-bottom-gray">Work Experience</h3>
           <ul>
             <li class="work-position">
-              <h5>PHP Developer</h5>
+              <h5><?php echo $job[0]['title']; ?></h5>
+              <p><?php echo $job[0]['description']; ?></p>
+              <strong>Achievements:</strong>
+              <ul>
+                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+              </ul>
+            </li>
+            <li class="work-position">
+              <h5><?php echo $job[1]['title']; ?></h5>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem
                 eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum
                 itaque obcaecati nihil.</p>
@@ -86,19 +97,7 @@
               </ul>
             </li>
             <li class="work-position">
-              <h5>PHP Developer</h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem
-                eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum
-                itaque obcaecati nihil.</p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-              </ul>
-            </li>
-            <li class="work-position">
-              <h5>PHP Developer</h5>
+              <h5><?php echo $job[2]['title']; ?></h5>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem
                 eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum
                 itaque obcaecati nihil.</p>
