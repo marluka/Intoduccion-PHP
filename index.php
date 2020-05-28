@@ -83,11 +83,10 @@
           <h3 class="border-bottom-gray">Work Experience</h3>
           <ul>
             <?php 
-            $idx = 0;
-              do {
+              for ($i=0; $i < count($job); $i++) { 
                 echo '<li class="work-position">';
-                echo '<h5>'.$job[$idx]['title'].'</h5>';
-                echo '<p>'.$job[$idx]['description'].'</p>';
+                echo '<h5>'.$job[$i]['title'].'</h5>';
+                echo '<p>'.$job[$i]['description'].'</p>';
                 echo '<strong>Achievements:</strong>';
                 echo '<ul>';
                 echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
@@ -95,8 +94,7 @@
                 echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
                 echo '</ul>';
                 echo '</li>';
-                $idx = $idx + 1;
-              } while ($idx < 3); 
+              }
             ?>
           </ul>
         </div>
