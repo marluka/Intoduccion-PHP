@@ -10,10 +10,18 @@
                         Eveniet doloremque ipsum itaque obcaecati nihil.'
     ],
     [
-      'title' => 'Python Dev'
+      'title' => 'Python Dev',
+      'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Nisi sapiente sed pariatur sint exercitationem eos expedita 
+                        eveniet veniam ullam, quia neque facilis dicta voluptatibus. 
+                        Eveniet doloremque ipsum itaque obcaecati nihil.'
     ],
     [
-      'title' => 'Devops'
+      'title' => 'Devops',
+      'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Nisi sapiente sed pariatur sint exercitationem eos expedita 
+                        eveniet veniam ullam, quia neque facilis dicta voluptatibus. 
+                        Eveniet doloremque ipsum itaque obcaecati nihil.'
       ]
   ];
   
@@ -74,40 +82,22 @@
         <div>
           <h3 class="border-bottom-gray">Work Experience</h3>
           <ul>
-            <li class="work-position">
-              <h5><?php echo $job[0]['title']; ?></h5>
-              <p><?php echo $job[0]['description']; ?></p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-              </ul>
-            </li>
-            <li class="work-position">
-              <h5><?php echo $job[1]['title']; ?></h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem
-                eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum
-                itaque obcaecati nihil.</p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-              </ul>
-            </li>
-            <li class="work-position">
-              <h5><?php echo $job[2]['title']; ?></h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem
-                eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum
-                itaque obcaecati nihil.</p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-              </ul>
-            </li>
+            <?php 
+            $idx = 0;
+              do {
+                echo '<li class="work-position">';
+                echo '<h5>'.$job[$idx]['title'].'</h5>';
+                echo '<p>'.$job[$idx]['description'].'</p>';
+                echo '<strong>Achievements:</strong>';
+                echo '<ul>';
+                echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+                echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+                echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+                echo '</ul>';
+                echo '</li>';
+                $idx = $idx + 1;
+              } while ($idx < 3); 
+            ?>
           </ul>
         </div>
         <div>
