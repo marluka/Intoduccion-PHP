@@ -1,6 +1,7 @@
 <?php
 
   include('jobs.php');
+  require_once('funtions.php');
   
   $name = 'Marly Mejia';
   $limitMonths = 200;
@@ -65,7 +66,7 @@
             <?php 
               $totalMonts = 0;
               for ($i=0; $i < count($job); $i++) { 
-                $totalMonts += $job[$i]['months'];
+                $totalMonts += $job[$i]->months;
                 if ($totalMonts > $limitMonths) {
                   break;
                 }
