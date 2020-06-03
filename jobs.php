@@ -3,35 +3,55 @@
 class Job {
   private $title;
   public $description;
-  public $visible;
+  public $visible = true;
   public $months;
+
+  public function __construct($title, $description) {
+    $this->setTitle($title);
+    $this->description = $description;
+  }
 
   public function getTitle(){
     return $this->title;
   }
 
   public function setTitle($title){
-    $this->title = $title;
+    if ($title=='') {
+      $this->title = 'N/A';
+    }else {
+      $this->title = $title;
+    }
+    
+  }
+
+  public function getDurationAsString(){
+    $years = floor($this->months / 12);
+    $extraMonts = $this->months % 12;
+    if ($years == 0) {
+      return "$extraMonts months";
+    }elseif ($extraMonts == 0) {
+      return "$years years";
+    }else{
+       return "$years years $extraMonts months";
+    }
   }
 
 }
 
-$job1 = new Job();
-$job1->setTitle('PHP Developer');
-$job1->visible = true;
+$job1 = new Job('PHP Developer','This is an awesome job!!!');
 $job1->months = 16;
-$job1->description = 'This is an awesome job!!!';
 
-$job2 = new Job();
-$job2->setTitle('Python Dev');
-$job2->visible = false;
-$job2->months = 14;
-$job2->description = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-//                     Nisi sapiente sed pariatur sint exercitationem eos expedita.';
+$job2 = new Job('Python Dev','This is an awesome job!!!');
+$job2->months = 24;
+
+$job3 = new Job('Devops','This is an awesome job!!!');
+$job3->months = 32;
+
 
 $job = [
   $job1,
-  $job2
+  $job2,
+  $job3
   // [
   //   'title' => 'PHP Developer',
   //   'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. 
