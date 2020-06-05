@@ -1,6 +1,6 @@
 <?php
 
-function printJob($job){
+function printElement($job){
   if ($job->visible == false) {
     return;
   }

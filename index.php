@@ -50,11 +50,6 @@
           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
           est laborum.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-          est laborum.
         </p>
       </div>
     </div>
@@ -70,13 +65,18 @@
                 if ($totalMonts > $limitMonths) {
                   break;
                 }
-                printJob($job[$i]);
+                printElement($job[$i]);
               }
             ?>
           </ul>
         </div>
         <div>
           <h3 class="border-bottom-gray">Projects</h3>
+          <?php 
+              for ($i=0; $i < count($projects); $i++) { 
+                printElement($projects[$i]);
+              }
+            ?>
           <div class="project">
             <h5>Project X</h5>
             <div class="row">
