@@ -1,5 +1,7 @@
 <?php
 
+require_once 'app/Models/Printable.php';
+
 function printElement($job){
   if ($job->visible == false) {
     return;
@@ -7,7 +9,7 @@ function printElement($job){
 
   echo '<li class="work-position">';
   echo '<h5>'.$job->getTitle().'</h5>';
-  echo '<p>'.$job->description.'</p>';
+  echo '<p>'.$job->getDescription().'</p>';
   echo '<p>'.$job->getDurationAsString().'</p>';
   echo '<strong>Achievements:</strong>';
   echo '<ul>';

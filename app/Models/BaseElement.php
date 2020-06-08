@@ -1,6 +1,8 @@
 <?php
 
-class BaseElement {
+require_once 'Printable.php';
+
+class BaseElement implements Printable {
   /* protected: propiedad privada, sólo con acceso las clases hijas */
   /* private: no se puede acceder a esa propiedad fuera de la clase */
   /* public: se puede acceder a esa propiedad desde fuera */
@@ -38,6 +40,10 @@ class BaseElement {
     }else{
        return "$years years $extraMonts months";
     }
+  }
+
+  public function getDescription(){
+    return $this->description;
   }
 
 }
