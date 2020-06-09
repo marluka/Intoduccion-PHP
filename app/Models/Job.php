@@ -20,6 +20,4 @@ class Job extends Model {
     }
   }
 
- 
-
 }

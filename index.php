@@ -1,7 +1,31 @@
 <?php
 
+
+require_once 'vendor/autoload.php';
+
+use Illuminate\Database\Capsule\Manager as Capsule;
+use App\Models\Job;
+
+$capsule = new Capsule;
+
+$capsule->addConnection([
+    'driver'    => 'mysql',
+    'host'      => 'localhost',
+    'database'  => 'cursophp',
+    'username'  => 'root',
+    'password'  => '',
+    'charset'   => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'prefix'    => '',
+]);
+
+// Make this Capsule instance available globally via static methods... (optional)
+$capsule->setAsGlobal();
+
+// Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
+$capsule->bootEloquent();
+
   include('jobs.php');
-  require_once('funtions.php');
   
   $name = 'Marly Mejia';
   $limitMonths = 200;
@@ -60,12 +84,12 @@
           <ul>
             <?php 
               $totalMonts = 0;
-              for ($i=0; $i < count($job); $i++) { 
-                $totalMonts += $job[$i]->months;
+              for ($i=0; $i < count($jobs); $i++) { 
+                $totalMonts += $jobs[$i]->months;
                 if ($totalMonts > $limitMonths) {
                   break;
                 }
-                printElement($job[$i]);
+                printElement($jobs[$i]);
               }
             ?>
           </ul>
