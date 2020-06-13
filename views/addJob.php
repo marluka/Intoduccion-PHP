@@ -1,17 +1,3 @@
-<?php
-
-use App\Models\Project;
-
-if (!empty($_POST)) {
-  $job = new Project();
-  $job->title = $_POST['title'];
-  $job->description = $_POST['description'];
-  $job->save();
-}
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,8 +11,8 @@ if (!empty($_POST)) {
 </head>
 
 <body>
-  <form action="addProject.php" method="post">
-    <h1>Add Project</h1>
+  <form action="addJob.php" method="post">
+    <h1>Add Job</h1>
     <label for="title">Title:
       <input type="text" name="title" />
     </label>
