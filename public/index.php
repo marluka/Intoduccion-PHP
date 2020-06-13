@@ -38,7 +38,10 @@ $request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(
 
 $routerContainer = new RouterContainer();
 $map = $routerContainer->getMap();
-$map->get('index', '/09-INTRODUCCION-PHP/Repositorio/', '../index.php');
+$map->get('index', '/09-INTRODUCCION-PHP/Repositorio/', [
+  'controller' => 'App\Controllers\IndexController',
+  'action' => 'indexAction'
+]);
 $map->get('addJob', '/09-INTRODUCCION-PHP/Repositorio/jobs/add', '../addJob.php');
 $map->get('addProject', '/09-INTRODUCCION-PHP/Repositorio/projects/add', '../addProject.php');
 
@@ -49,5 +52,12 @@ $route = $matcher->match($request);
 if (!$route) {
   echo 'No route';
 }else {
-  require $route->handler;
+  $handlerData = $route->handler;
+  $controllerName = $handlerData['controller'];
+  $actionName = $handlerData['action'];
+
+  /* intancia de clase basada en una cadena */
+  $controller = new $controllerName;
+  $controller->$actionName();
+  
 }
