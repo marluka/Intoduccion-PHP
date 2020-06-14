@@ -1,14 +1,23 @@
 {% extends "layout.twig" %}
 
 {% block content %}
+
+  <br/>
+  <h1>Add Project</h1>
+  <hr>
+  {% if responseMessage %}
+    <div class="alert alert-primary" role="alert">
+      {{ responseMessage }}
+    </div>
+  {% endif %}
   <form action="/09-INTRODUCCION-PHP/Repositorio/projects/add" method="post">
-    <h1>Add Project</h1>
-    <label for="title">Title:
-      <input type="text" name="title" />
-    </label>
-    <label for="description">Descripción:
-      <input type="text" name="description" />
-    </label>
+  <br/>
+    <label for="title">Title:</label>
+    <input type="text" name="title" />
+    
+    <label for="description">Descripción:</label>
+    <input type="text" name="description" />
+    
     <button type="submit">Enviar</button>
   </form>
 {% endblock %}
