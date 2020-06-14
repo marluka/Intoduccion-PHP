@@ -109,6 +109,7 @@ if (!$route) {
 
   /* intancia de clase basada en una cadena */
   $controller = new $controllerName;
-  $controller->$actionName($request);
+  $response = $controller->$actionName($request);
   
+  echo $response->getBody();
 }

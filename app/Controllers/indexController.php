@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\{Job, Project};
 
-class IndexController {
+class IndexController extends BaseController {
 
   public function indexAction() {
    
@@ -14,7 +14,11 @@ class IndexController {
     $name = 'Marly Mejia';
     $limitMonths = 2000;
 
-    include('../views/index.php');
+    return $this->renderHTML('index.twig', [
+      'name'=> $name,
+      'jobs' => $jobs,
+      'projects' => $projects,
+    ]);
     
   }
 }
