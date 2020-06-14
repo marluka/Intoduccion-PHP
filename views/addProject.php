@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <form action="addProject.php" method="post">
+  <form action="/09-INTRODUCCION-PHP/Repositorio/projects/add" method="post">
     <h1>Add Project</h1>
     <label for="title">Title:
       <input type="text" name="title" />

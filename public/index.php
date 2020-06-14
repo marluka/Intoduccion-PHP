@@ -46,7 +46,15 @@ $map->get('addJob', '/09-INTRODUCCION-PHP/Repositorio/jobs/add', [
   'controller' => 'App\Controllers\JobsController',
   'action' => 'getAddJobAction'
 ]);
+$map->post('saveJob', '/09-INTRODUCCION-PHP/Repositorio/jobs/add', [
+  'controller' => 'App\Controllers\JobsController',
+  'action' => 'getAddJobAction'
+]);
 $map->get('addProject', '/09-INTRODUCCION-PHP/Repositorio/projects/add', [
+  'controller' => 'App\Controllers\ProjectsController',
+  'action' => 'getAddProjectAction'
+]);
+$map->post('saveProject', '/09-INTRODUCCION-PHP/Repositorio/projects/add', [
   'controller' => 'App\Controllers\ProjectsController',
   'action' => 'getAddProjectAction'
 ]);
@@ -101,6 +109,6 @@ if (!$route) {
 
   /* intancia de clase basada en una cadena */
   $controller = new $controllerName;
-  $controller->$actionName();
+  $controller->$actionName($request);
   
 }

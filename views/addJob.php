@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <form action="addJob.php" method="post">
+  <form action="/09-INTRODUCCION-PHP/Repositorio/jobs/add" method="post">
     <h1>Add Job</h1>
     <label for="title">Title:
       <input type="text" name="title" />
