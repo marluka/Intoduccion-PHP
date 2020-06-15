@@ -17,9 +17,19 @@ class ProjectsController extends BaseController {
       try {
         $projectValidator->assert($postData);
         $postData = $request->getParsedBody();
+                
+        $files = $request->getUploadedFiles();
+        $logo= $files['logo'];
+
+        if ($logo->getError() == UPLOAD_ERR_OK) {
+          $fileName = $logo->getClientFilename();
+          $logo->moveTo("uploads/$fileName");
+        }
+        
         $project = new Project();
         $project->title = $postData['title'];
         $project->description = $postData['description'];
+        $project->fileName = $logo->getClientFilename();
         $project->save();
 
         $responseMessage = 'Saved';

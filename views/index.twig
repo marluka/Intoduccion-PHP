@@ -55,7 +55,11 @@
             <h5>{{ project.title }}</h5>
             <div class="row">
               <div class="col-3">
-                <img id="profile-picture" src="https://ui-avatars.com/api/?name=John+Doe&size=255" alt="">
+                {% if project.fileName != '' %}
+                  <img id="profile-picture" src="uploads/{{ project.fileName }}" alt="{{ project.fileName }}">
+                {% else %}
+                  <img id="profile-picture" src="https://ui-avatars.com/api/?name=John+Doe&size=255" alt="">
+                {% endif %}
               </div>
               <div class="col">
                 <p>{{ project.description }}</p>
