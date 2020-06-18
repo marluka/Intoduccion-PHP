@@ -1,0 +1,49 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+  <br/>
+  <h1>Add User</h1>
+  <hr>
+  {% if responseMessage %}
+    <div class="alert alert-primary" role="alert">
+      {{ responseMessage }}
+    </div>
+  {% endif %}
+  <form id="formCheckPassword" action="/09-INTRODUCCION-PHP/Repositorio/users/add" method="post" >
+    <br/>
+    <div style="padding: 10px;">
+      <label for="email">Email</label>
+      <input type="email" name="email" required>
+    </div>
+
+    <div style="padding: 10px;">
+      <label for="password">Password</label>
+      <input type="password"  name="password" id="password" required>
+    </div>
+
+    <div style="padding: 10px;">
+      <label for="cfmPassword">Confirm Password</label>
+      <input type="password" name="cfmPassword" id="cfmPassword" required>
+    </div>
+    
+    <div style="padding: 10px;">
+      <button type="submit">Register</button>
+    </div>
+  </form>
+  
+  <script>
+    var password = document.getElementById("password");
+    var confirm_password = document.getElementById("cfmPassword");
+
+    function validatePassword(){
+      if(password.value != cfmPassword.value) {
+        cfmPassword.setCustomValidity("Passwords Don't Match");
+      } else {
+        cfmPassword.setCustomValidity('');
+      }
+    }
+    password.onchange = validatePassword;
+    cfmPassword.onkeyup = validatePassword;
+  </script>
+{% endblock %}
