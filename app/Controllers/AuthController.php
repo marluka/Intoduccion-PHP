@@ -2,8 +2,9 @@
 
 namespace App\Controllers;
 
-use App\Models\{Login,User};
+use App\Models\User;
 use Respect\Validation\Validator as v;
+use Zend\Diactoros\Response\RedirectResponse;
 
 class AuthController extends BaseController {
   
@@ -18,14 +19,19 @@ class AuthController extends BaseController {
     $user = User::where('email',$postData['email'])->first();
     if ($user) {
       if (password_verify($postData['password'], $user->password)) {
-        echo 'correcto';
-    } else {
-        echo 'error';
-    }
+        // $_SESSION['userId'] = $user->id;
+        return new RedirectResponse('/09-INTRODUCCION-PHP/Repositorio/admin');
+      } 
+      else {
+          $responseMessage = 'Bad credentials';
+      }
     }
     else {
-      echo 'Not found';
+      $responseMessage = 'Bad credentials';
     }
+
+    return $this->renderHTML('login.twig', ['responseMessage' => $responseMessage]);
+    
   }
 
 }

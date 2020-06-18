@@ -36,49 +36,51 @@ $request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(
   $_FILES
 );
 
+$ruta = "/09-INTRODUCCION-PHP/Repositorio";
 $routerContainer = new RouterContainer();
 $map = $routerContainer->getMap();
-$map->get('index', '/09-INTRODUCCION-PHP/Repositorio/', [
+$map->get('index', $ruta.'/', [
   'controller' => 'App\Controllers\IndexController',
   'action' => 'indexAction'
 ]);
 
-$map->get('addJob', '/09-INTRODUCCION-PHP/Repositorio/jobs/add', [
+$map->get('addJob', $ruta.'/jobs/add', [
   'controller' => 'App\Controllers\JobsController',
   'action' => 'getAddJob'
 ]);
-$map->post('saveJob', '/09-INTRODUCCION-PHP/Repositorio/jobs/add', [
+$map->post('saveJob', $ruta.'/jobs/add', [
   'controller' => 'App\Controllers\JobsController',
   'action' => 'getAddJob'
 ]);
 
-$map->get('addProject', '/09-INTRODUCCION-PHP/Repositorio/projects/add', [
+$map->get('addProject', $ruta.'/projects/add', [
   'controller' => 'App\Controllers\ProjectsController',
   'action' => 'getAddProject'
 ]);
-$map->post('saveProject', '/09-INTRODUCCION-PHP/Repositorio/projects/add', [
+$map->post('saveProject', $ruta.'/projects/add', [
   'controller' => 'App\Controllers\ProjectsController',
   'action' => 'getAddProject'
 ]);
 
-$map->get('addUser', '/09-INTRODUCCION-PHP/Repositorio/users/add', [
+$map->get('addUser', $ruta.'/users/add', [
   'controller' => 'App\Controllers\UsersController',
   'action' => 'getAddUser'
 ]);
-$map->post('saveUser', '/09-INTRODUCCION-PHP/Repositorio/users/add', [
+$map->post('saveUser', $ruta.'/users/add', [
   'controller' => 'App\Controllers\UsersController',
   'action' => 'getAddUser'
 ]);
 
-$map->get('loginForm', '/09-INTRODUCCION-PHP/Repositorio/login', [
+$map->get('loginForm', $ruta.'/login', [
   'controller' => 'App\Controllers\AuthController',
   'action' => 'getLogin'
 ]);
 
-$map->post('auth', '/09-INTRODUCCION-PHP/Repositorio/auth', [
+$map->post('auth', $ruta.'/auth', [
   'controller' => 'App\Controllers\AuthController',
   'action' => 'postLogin'
 ]);
+
 
 $matcher = $routerContainer->getMatcher();
 $route = $matcher->match($request);
@@ -132,5 +134,11 @@ if (!$route) {
   $controller = new $controllerName;
   $response = $controller->$actionName($request);
   
+  foreach ($response->getHeaders() as $name => $values) {
+    foreach ($values as $value) {
+      header(sprintf('%s %s', $name, $value),false);
+    }
+  }
+  http_response_code($response->getStatusCode());
   echo $response->getBody();
 }
