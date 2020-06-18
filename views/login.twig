@@ -1,0 +1,40 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+  <br/>
+  <h1>Login</h1>
+  <hr>
+
+  {% if responseMessage %}
+    <div class="alert alert-primary" role="alert">
+      {{ responseMessage }}
+    </div>
+  {% endif %}
+
+  <form action="/09-INTRODUCCION-PHP/Repositorio/auth" method="post" >
+    <br/>
+    
+    <div style="display: flex">
+      <div>
+        <img src="images/login.png" width="200px"/>
+      </div>
+
+      <div style="margin: auto;">
+        <div style="padding: 10px;">
+          <input type="email" placeholder="Email" name="email" required>
+        </div>
+
+        <div style="padding: 10px;">
+          <input type="password" placeholder="Password" name="password" id="password" required>
+        </div>
+
+        <div style="padding: 10px;">
+          <button type="submit">Login</button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+ 
+{% endblock %}

@@ -45,29 +45,39 @@ $map->get('index', '/09-INTRODUCCION-PHP/Repositorio/', [
 
 $map->get('addJob', '/09-INTRODUCCION-PHP/Repositorio/jobs/add', [
   'controller' => 'App\Controllers\JobsController',
-  'action' => 'getAddJobAction'
+  'action' => 'getAddJob'
 ]);
 $map->post('saveJob', '/09-INTRODUCCION-PHP/Repositorio/jobs/add', [
   'controller' => 'App\Controllers\JobsController',
-  'action' => 'getAddJobAction'
+  'action' => 'getAddJob'
 ]);
 
 $map->get('addProject', '/09-INTRODUCCION-PHP/Repositorio/projects/add', [
   'controller' => 'App\Controllers\ProjectsController',
-  'action' => 'getAddProjectAction'
+  'action' => 'getAddProject'
 ]);
 $map->post('saveProject', '/09-INTRODUCCION-PHP/Repositorio/projects/add', [
   'controller' => 'App\Controllers\ProjectsController',
-  'action' => 'getAddProjectAction'
+  'action' => 'getAddProject'
 ]);
 
 $map->get('addUser', '/09-INTRODUCCION-PHP/Repositorio/users/add', [
   'controller' => 'App\Controllers\UsersController',
-  'action' => 'getAddUserAction'
+  'action' => 'getAddUser'
 ]);
 $map->post('saveUser', '/09-INTRODUCCION-PHP/Repositorio/users/add', [
   'controller' => 'App\Controllers\UsersController',
-  'action' => 'getAddUserAction'
+  'action' => 'getAddUser'
+]);
+
+$map->get('loginForm', '/09-INTRODUCCION-PHP/Repositorio/login', [
+  'controller' => 'App\Controllers\AuthController',
+  'action' => 'getLogin'
+]);
+
+$map->post('auth', '/09-INTRODUCCION-PHP/Repositorio/auth', [
+  'controller' => 'App\Controllers\AuthController',
+  'action' => 'postLogin'
 ]);
 
 $matcher = $routerContainer->getMatcher();

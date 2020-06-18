@@ -6,7 +6,8 @@ use App\Models\Project;
 use Respect\Validation\Validator as v;
 
 class ProjectsController extends BaseController {
-  public function getAddProjectAction($request) {
+  
+  public function getAddProject($request) {
     $responseMessage = null;
 
     if ($request->getMethod()=='POST') {

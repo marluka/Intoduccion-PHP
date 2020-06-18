@@ -6,7 +6,8 @@ use App\Models\User;
 use Respect\Validation\Validator as v;
 
 class UsersController extends BaseController {
-  public function getAddUserAction($request) {
+  
+  public function getAddUser($request) {
     $responseMessage = null;
 
     if ($request->getMethod()=='POST') {
