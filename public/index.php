@@ -6,6 +6,8 @@ error_reporting(E_ALL);
 
 require_once '../vendor/autoload.php';
 
+session_start();
+
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Aura\Router\RouterContainer;
 
@@ -46,7 +48,8 @@ $map->get('index', $ruta.'/', [
 
 $map->get('addJob', $ruta.'/jobs/add', [
   'controller' => 'App\Controllers\JobsController',
-  'action' => 'getAddJob'
+  'action' => 'getAddJob',
+  'auth' => true
 ]);
 $map->post('saveJob', $ruta.'/jobs/add', [
   'controller' => 'App\Controllers\JobsController',
@@ -55,7 +58,8 @@ $map->post('saveJob', $ruta.'/jobs/add', [
 
 $map->get('addProject', $ruta.'/projects/add', [
   'controller' => 'App\Controllers\ProjectsController',
-  'action' => 'getAddProject'
+  'action' => 'getAddProject',
+  'auth' => true
 ]);
 $map->post('saveProject', $ruta.'/projects/add', [
   'controller' => 'App\Controllers\ProjectsController',
@@ -64,7 +68,8 @@ $map->post('saveProject', $ruta.'/projects/add', [
 
 $map->get('addUser', $ruta.'/users/add', [
   'controller' => 'App\Controllers\UsersController',
-  'action' => 'getAddUser'
+  'action' => 'getAddUser',
+  'auth' => true
 ]);
 $map->post('saveUser', $ruta.'/users/add', [
   'controller' => 'App\Controllers\UsersController',
@@ -75,12 +80,21 @@ $map->get('loginForm', $ruta.'/login', [
   'controller' => 'App\Controllers\AuthController',
   'action' => 'getLogin'
 ]);
+$map->get('logout', $ruta.'/logout', [
+  'controller' => 'App\Controllers\AuthController',
+  'action' => 'getLogout'
+]);
 
 $map->post('auth', $ruta.'/auth', [
   'controller' => 'App\Controllers\AuthController',
   'action' => 'postLogin'
 ]);
 
+$map->get('admin', $ruta.'/admin', [
+  'controller' => 'App\Controllers\AdminController',
+  'action' => 'getIndex',
+  'auth' => true
+]);
 
 $matcher = $routerContainer->getMatcher();
 $route = $matcher->match($request);
@@ -129,6 +143,13 @@ if (!$route) {
   $handlerData = $route->handler;
   $controllerName = $handlerData['controller'];
   $actionName = $handlerData['action'];
+  $needsAuth = $handlerData['auth'] ?? false;
+
+  $sessionUserId = $_SESSION['userId'] ?? null;
+  if ($needsAuth && ! $sessionUserId) {
+      header('Location: /09-INTRODUCCION-PHP/Repositorio/login');
+      exit;
+  }
 
   /* intancia de clase basada en una cadena */
   $controller = new $controllerName;

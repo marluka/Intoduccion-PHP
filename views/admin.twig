@@ -1,0 +1,23 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+  <br/>
+  <h1>Dashboard</h1>
+  <hr>
+
+  {% if responseMessage %}
+    <div class="alert alert-primary" role="alert">
+      {{ responseMessage }}
+    </div>
+  {% endif %}
+
+  <ul>
+    <li><a href="/09-INTRODUCCION-PHP/Repositorio/users/add">Add Users</a></li>
+    <li><a href="/09-INTRODUCCION-PHP/Repositorio/jobs/add">Add Jobs</a></li>
+    <li><a href="/09-INTRODUCCION-PHP/Repositorio/projects/add">Add Projects</a></li>
+  </ul>
+
+  <a href="/09-INTRODUCCION-PHP/Repositorio/logout" >Logout</a>
+  
+{% endblock %}
