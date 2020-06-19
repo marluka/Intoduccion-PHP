@@ -4,11 +4,11 @@ namespace App\Controllers;
 
 use App\Models\User;
 use Respect\Validation\Validator as v;
-use Zend\Diactoros\Response\RedirectResponse;
+use Laminas\Diactoros\Response\RedirectResponse;
 
 class AuthController extends BaseController {
   
-  public function getLogin($request) {
+  public function getLogin() {
     return $this->renderHTML('login.twig');
   }
 
@@ -20,7 +20,7 @@ class AuthController extends BaseController {
     if ($user) {
       if (password_verify($postData['password'], $user->password)) {
         // $_SESSION['userId'] = $user->id;
-        return new RedirectResponse('/09-INTRODUCCION-PHP/Repositorio/admin');
+        return new RedirectResponse('admin');
       } 
       else {
           $responseMessage = 'Bad credentials';
